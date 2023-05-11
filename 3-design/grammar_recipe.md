@@ -16,7 +16,7 @@ _Include the name of the method, its parameters, return value, and side effects.
 # `check_grammar` validates whether a string is grammatically correct
 result = check_grammar(text)
 
-text: a string (e.g. "This is a valid sentence.")
+text: a string (e.g. "Lorem ipsum dolor sit amet.")
 result: a string (e.g. ["Sentence is correct."])
 
 # The method prints confirmation of whether the sentence is valid.
