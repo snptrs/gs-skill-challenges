@@ -29,8 +29,9 @@ _Make a list of examples of what the method will take and return._
 ```ruby
 # EXAMPLE
 
-reading_time("Hello world") => [0.6]
-reading_time("It's great that there is so much source code available on public repositories and file shares. No matter the coding task or problem, there is probably already a good solution available somewhere. It is also great that there are so many powerful coding tools available to help you understand, debug, and optimize your code. However, using open-source code and tools does have risks, and you can leave yourself open to malicious code execution and exploits.") => [22.5]
+reading_time(<200 words>) => [60]
+reading_time(<two words>) => [1]
+reading_time(<75 words>) => [23]
 reading_time("") => [0]
 ```
 
