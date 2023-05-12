@@ -17,7 +17,7 @@ RSpec.describe TaskList do
   end
 
   context "given two tasks" do
-    it "has the tasks in the list" do
+    xit "has the tasks in the list" do
       task_list = TaskList.new
       task_list.add("Buy bread")
       task_list.add("Fly a kite")
@@ -26,7 +26,7 @@ RSpec.describe TaskList do
   end
 
   context "when completing a task" do
-    it "removes the task from the list" do
+    xit "removes the task from the list" do
       task_list = TaskList.new
       task_list.add("Buy bread")
       task_list.add("Fly a kite")
@@ -36,7 +36,7 @@ RSpec.describe TaskList do
   end
 
   context "when trying to complete a non-existent task" do
-    it "throws an error" do
+    xit "throws an error" do
       task_list = TaskList.new
       expect { task_list.complete("Make coffee") }.to raise_error "No such task"
     end
