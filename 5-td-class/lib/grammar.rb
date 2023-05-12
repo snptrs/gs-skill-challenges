@@ -4,7 +4,7 @@ class GrammarStats
 
   def check(text) # text is a string
     result = /^[A-Z].*[.?!]/ =~ text
-    return result.integer?
+    result != nil ? true : false
   end
 
   def percentage_good
