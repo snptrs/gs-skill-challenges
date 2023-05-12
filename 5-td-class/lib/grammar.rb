@@ -1,11 +1,10 @@
 class GrammarStats
-  def initialize(text)
-    @text = text
+  def initialize
   end
 
   def check(text) # text is a string
-    # Returns true or false depending on whether the text begins with a capital
-    # letter and ends with a sentence-ending punctuation mark.
+    result = /^[A-Z].*[.?!]/ =~ text
+    return result.integer?
   end
 
   def percentage_good
