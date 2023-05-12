@@ -11,8 +11,8 @@ class TaskList
     @task_list
   end
 
-  def complete(task_number) # task_id is an integer
-    # Throws an error if no task_number given
-    # Returns a string confirming task marked as complete
+  def complete(task)
+    fail "No such task" unless @task_list.include?(task)
+    @task_list.delete(task)
   end
 end
