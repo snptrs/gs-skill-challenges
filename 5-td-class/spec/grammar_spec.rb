@@ -30,4 +30,32 @@ RSpec.describe GrammarStats do
       expect(result).to eq false
     end
   end
+
+  context "#percentage_good" do
+    # catch error if no checks performed yet
+    # expect { entry.reading_time(0) }.to raise_error "Reading speed must be greater than 0."
+
+    it "returns 100 when passed one valid sentence" do
+      grammar = GrammarStats.new
+      grammar.check("Lorem ipsum dolor.")
+      result = grammar.percentage_good
+      expect(result).to eq 100
+    end
+
+    it "returns 50 when passed one valid and one invalid sentence" do
+      grammar = GrammarStats.new
+      grammar.check("Lorem ipsum dolor.")
+      grammar.check("lorem ipsum dolor.")
+      result = grammar.percentage_good
+      expect(result).to eq 50
+    end
+
+    it "returns 0 when passed two invalid sentences" do
+      grammar = GrammarStats.new
+      grammar.check("lorem ipsum dolor")
+      grammar.check("lorem ipsum dolor.")
+      result = grammar.percentage_good
+      expect(result).to eq 0
+    end
+  end
 end
