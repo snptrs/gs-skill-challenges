@@ -1,7 +1,7 @@
 require 'todo_list'
 
 # RSpec.describe TodoList do
-#   it "adds a new todo" do
+#   context "when adding a todo" do
 
 #   end
-end
+# end

@@ -1,5 +1,6 @@
 class Todo
-  def initialize(task) # task is a string
+  def initialize(task)
+    fail "No task text provided" if task == ""
     @todo = [task, ""]
   end
 

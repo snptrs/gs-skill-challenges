@@ -1,9 +1,15 @@
 require 'todo'
 
 RSpec.describe Todo do
-  it "adds a task" do
-    todo = Todo.new("Buy bread")
-    expect(todo.task).to eq "Buy bread"
+  context "when adding a task" do
+    it "adds a task" do
+      todo = Todo.new("Buy bread")
+      expect(todo.task).to eq "Buy bread"
+    end
+
+    it "fails if no todo text provided" do
+      expect { Todo.new("") }.to raise_error "No task text provided"
+    end
   end
 
   context "when checking if a task is complete" do
