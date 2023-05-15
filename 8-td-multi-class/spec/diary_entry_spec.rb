@@ -35,7 +35,7 @@ RSpec.describe DiaryEntry do
     end
     it "fails unless wpm is positive" do
       diary_entry = DiaryEntry.new("Title", "one two three")
-      expect{diary_entry.reading_time(-1)}.to raise_error ("Error")
+      expect{diary_entry.reading_time(-1)}.to raise_error ("Error: wpm should be a non-negative integer")
     end
   end
 
