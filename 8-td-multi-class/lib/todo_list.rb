@@ -1,13 +1,18 @@
 class TodoList
   def initialize
+    @todos = []
   end
 
   def add(todo) # todo is an instance of Todo
-    # Returns nothing
+    @todos << todo
   end
 
   def incomplete
-    # Returns all non-done todos
+    todos = @todos.filter do |todo|
+      todo.done? == false
+    end
+    
+    return todos.map! { |todo| todo.task }
   end
 
   def complete
