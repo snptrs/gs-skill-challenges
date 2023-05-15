@@ -3,7 +3,7 @@ class TodoList
     @todos = []
   end
 
-  def add(todo) # todo is an instance of Todo
+  def add(todo)
     @todos << todo
   end
 
@@ -16,10 +16,14 @@ class TodoList
   end
 
   def complete
-    # Returns all complete todos
+    todos = @todos.filter do |todo|
+      todo.done? == true
+    end
+    
+    return todos.map! { |todo| todo.task }
   end
 
   def give_up!
-    # Marks all todos as complete
+    @todos.each { |todo| todo.mark_done! }
   end
 end
