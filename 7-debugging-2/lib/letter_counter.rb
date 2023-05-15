@@ -25,8 +25,8 @@ class LetterCounter
   end
 end
 
-counter = LetterCounter.new("Digital Punk")
-p counter.calculate_most_common
+# counter = LetterCounter.new("Digital Punk")
+# p counter.calculate_most_common
 
 # Intended output:
 # [2, "i"]
