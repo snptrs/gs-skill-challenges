@@ -34,4 +34,14 @@ class Diary
   def complete_task(task)
     task.done
   end
+
+  def view_contacts
+    contacts = []
+    @entries.each do |entry|
+      /[0-9]{11}/ =~ entry.entry
+      contacts << $~[0] if $~ != nil
+    end
+    return contacts
+  end
+
 end

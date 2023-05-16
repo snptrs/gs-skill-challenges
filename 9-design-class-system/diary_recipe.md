@@ -40,20 +40,20 @@ I want to see a list of all of the mobile phone numbers in all my diary entries
          │                                       │
          │                                       │
          │                                       │
-         └──┬─────────────────┬───────────────┬──┘
-            │                 │               │
-Maintains a │                 │ Maintains     │ Queries phone numbers
-list of     │                 │ a list of     │ in diary entries
-            │                 │               │
-┌───────────▼────┐    ┌───────▼───────┐    ┌──▼───────────────┐
-│ DiaryEntry     │    │ Task          │    │ Contacts         │
-│                │    │               │    │                  │
-│ - date         │    │ - description │    │ - phone_number   │
-│ - entry        │    │ - status      │    │                  │
-│ - length       │    │               │    │                  │
-│                │    │               │    │                  │
-│                │    │               │    │                  │
-└────────────────┘    └───────────────┘    └──────────────────┘
+         └──────────┬─────────────────┬──────────┘
+                    │                 │            
+        Maintains a │                 │ Maintains  
+        list of     │                 │ a list of  
+                    │                 │            
+        ┌───────────▼────┐    ┌───────▼───────┐    
+        │ DiaryEntry     │    │ Task          │    
+        │                │    │               │    
+        │ - date         │    │ - description │    
+        │ - entry        │    │ - status      │    
+        │ - length       │    │               │    
+        │                │    │               │    
+        │                │    │               │    
+        └────────────────┘    └───────────────┘    
 
 ```
 
@@ -126,13 +126,6 @@ class Task
   end
 end
 
-class Contact
-  def initialize
-  end
-
-  def search # Finds phone numbers in diary entries
-  end
-end
 
 ```
 
@@ -165,6 +158,21 @@ task_1 = Task.new("Buy bread")
 diary.add_task(task_1)
 diary.view_tasks # => ["Buy bread"]
 
+# Completes tasks
+diary = Diary.new
+task_1 = Task.new("Buy bread")
+diary.add_task(task_1)
+diary.complete_task(task_1) # => task_1.status == "complete"
+
+# Searches diary entries for phone numbers
+diary = Diary.new
+diary_entry_1 = DiaryEntry.new("5 January", "I met Josh today: 07123 456789")
+diary_entry_2 = DiaryEntry.new("13 February", "Three word entry")
+diary_entry_2 = DiaryEntry.new("13 February", "Remember Mollie's number: 07000555666")
+diary.add_entry(diary_entry_1)
+diary.add_entry(diary_entry_2)
+diary.add_entry(diary_entry_2)
+diary.view_contacts # => ["07123 456789", "07000555666"]
 
 ```
 
@@ -178,6 +186,10 @@ a more granular level of detail._
 diary = Diary.new
 diary_entry_1 = DiaryEntry.new("5 January", "First diary entry")
 diary_entry_1.reading_time(1) #=> 3
+
+# Marks a task complete
+task = Task.new("Buy bread")
+task.done # => task.status == "complete"
 ```
 
 _Encode each example as a test. You can add to the above list as you go._

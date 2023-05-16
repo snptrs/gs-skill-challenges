@@ -46,4 +46,17 @@ RSpec.describe Diary do
     end
   end
 
+  context "searches diary entries for phone numbers" do
+    it "returns the phone numbers" do
+      diary = Diary.new
+      diary_entry_1 = DiaryEntry.new("5 January", "I met Josh today: 07123456789")
+      diary_entry_2 = DiaryEntry.new("13 February", "Three word entry")
+      diary_entry_3 = DiaryEntry.new("13 February", "Remember Mollie's number: 07000555666")
+      diary.add_entry(diary_entry_1)
+      diary.add_entry(diary_entry_2)
+      diary.add_entry(diary_entry_3)
+      expect(diary.view_contacts).to eq ["07123456789", "07000555666"]
+    end
+  end
+
 end
