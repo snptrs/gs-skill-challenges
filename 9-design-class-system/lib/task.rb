@@ -11,4 +11,8 @@ class Task
   def status
     @status
   end
+
+  def done
+    @status = "complete"
+  end
 end

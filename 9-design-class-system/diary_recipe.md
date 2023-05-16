@@ -121,6 +121,9 @@ class Task
 
   def status
   end
+
+  def done
+  end
 end
 
 class Contact
