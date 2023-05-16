@@ -26,13 +26,23 @@ RSpec.describe Diary do
   end
 
   context "having added some tasks" do
-    it "returns the tasks" do
+    it "returns all the tasks" do
       diary = Diary.new
       task_1 = Task.new("Buy bread")
       task_2 = Task.new("Scritch a dog")
       diary.add_task(task_1)
       diary.add_task(task_2)
       expect(diary.view_tasks).to eq ["Buy bread", "Scritch a dog"]
+    end
+
+    it "returns just the incomplete tasks" do
+      diary = Diary.new
+      task_1 = Task.new("Buy bread")
+      task_2 = Task.new("Scritch a dog")
+      diary.add_task(task_1)
+      diary.add_task(task_2)
+      diary.complete_task(task_1)
+      expect(diary.view_tasks).to eq ["Scritch a dog"]
     end
   end
 

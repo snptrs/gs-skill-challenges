@@ -30,4 +30,8 @@ class Diary
     tasks = @tasks.filter { |task| task.status == "incomplete" }
     tasks.map! { |task| task.description}
   end
+
+  def complete_task(task)
+    task.done
+  end
 end
