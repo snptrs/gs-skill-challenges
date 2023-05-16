@@ -1,7 +1,6 @@
 require 'diary'
 require 'diary_entry'
 require 'task'
-require 'contact'
 
 RSpec.describe Diary do
 
@@ -22,6 +21,11 @@ RSpec.describe Diary do
       diary.add_entry(diary_entry_1)
       diary.add_entry(diary_entry_2)
       expect(diary.read_entry_of_length(1, 5)).to eq diary_entry_1
+    end
+
+    it "returns an error if wpm is 0 or not set" do
+      diary = Diary.new
+      expect { diary.read_entry_of_length(0, 2) }.to raise_error "No parameters given"
     end
   end
 

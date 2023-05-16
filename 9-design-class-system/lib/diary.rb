@@ -13,6 +13,7 @@ class Diary
   end
 
   def read_entry_of_length(wpm, minutes)
+    fail "No parameters given" unless wpm > 0
     readable_entries = @entries.filter do |entry|
       entry.reading_time(wpm) <= minutes
     end
@@ -32,6 +33,7 @@ class Diary
   end
 
   def complete_task(task)
+    fail "Task doesn't exist" unless task.defined?
     task.done
   end
 
