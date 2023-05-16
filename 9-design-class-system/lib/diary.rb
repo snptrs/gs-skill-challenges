@@ -33,7 +33,6 @@ class Diary
   end
 
   def complete_task(task)
-    fail "Task doesn't exist" unless task.defined?
     task.done
   end
 
