@@ -165,11 +165,10 @@ _Create examples, where appropriate, of the behaviour of each relevant class at
 a more granular level of detail._
 
 ```ruby
-# EXAMPLE
-
-# Constructs a track
-track = Track.new("Carte Blanche", "Veracocha")
-track.title # => "Carte Blanche"
+# Returns reading time for a diary entry
+diary = Diary.new
+diary_entry_1 = DiaryEntry.new("5 January", "First diary entry")
+diary_entry_1.reading_time(1) #=> 3
 ```
 
 _Encode each example as a test. You can add to the above list as you go._

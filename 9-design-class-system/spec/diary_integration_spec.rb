@@ -12,7 +12,16 @@ RSpec.describe Diary do
       diary_entry_2 = DiaryEntry.new("13 February", "Second diary entry")
       diary.add_entry(diary_entry_1)
       diary.add_entry(diary_entry_2)
-      expect(diary.read_entries).to eq [diary_entry_1, diary_entry_2] # => ["First diary entry", "Second diary entry"]
+      expect(diary.read_entries).to eq [diary_entry_1, diary_entry_2]
+    end
+
+    it "returns a diary entry that can be read in the given time" do
+      diary = Diary.new
+      diary_entry_1 = DiaryEntry.new("5 January", "Diary entry of five words")
+      diary_entry_2 = DiaryEntry.new("13 February", "Second diary entry")
+      diary.add_entry(diary_entry_1)
+      diary.add_entry(diary_entry_2)
+      expect(diary.read_entry_of_length(1, 5)).to eq diary_entry_1
     end
   end
 
