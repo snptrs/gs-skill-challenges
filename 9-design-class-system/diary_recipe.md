@@ -48,7 +48,7 @@ list of     │                 │ a list of     │ in diary entries
 ┌───────────▼────┐    ┌───────▼───────┐    ┌──▼───────────────┐
 │ DiaryEntry     │    │ Task          │    │ Contacts         │
 │                │    │               │    │                  │
-│ - date         │    │ - task        │    │ - phone_number   │
+│ - date         │    │ - description │    │ - phone_number   │
 │ - entry        │    │ - status      │    │                  │
 │ - length       │    │               │    │                  │
 │                │    │               │    │                  │
@@ -95,11 +95,15 @@ class DiaryEntry
   def initialize(date, entry) # date and entry are strings
   end
 
+  def entry_date
+    # Returns the entry date as a string
+  end
+
   def entry
     # Returns the entry as a string
   end
 
-  def length
+  def count_words
     # Returns the entry length as an integer
   end
 
@@ -109,13 +113,10 @@ class DiaryEntry
 end
 
 class Task
-  def initialize
+  def initialize(task)
   end
 
-  def add(task)
-  end
-
-  def task
+  def description
   end
 
   def status
@@ -155,6 +156,11 @@ diary.add_entry(diary_entry_1)
 diary.add_entry(diary_entry_2)
 diary.read_entry_of_length(1, 5) # => "Diary entry of five words"
 
+# Adds and gets tasks
+diary = Diary.new
+task_1 = Task.new("Buy bread")
+diary.add_task(task_1)
+diary.view_tasks # => ["Buy bread"]
 
 
 ```

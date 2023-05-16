@@ -1,6 +1,7 @@
 class Diary
   def initialize
     @entries = []
+    @tasks = []
   end
 
   def add_entry(entry)
@@ -16,8 +17,17 @@ class Diary
       entry.reading_time(wpm) <= minutes
     end
 
-    return readable_entries.max_by { |entry| 
+    readable_entries.max_by { |entry| 
       entry.count_words 
     } if readable_entries.any?
+  end
+
+  def add_task(task)
+    @tasks << task
+  end
+
+  def view_tasks
+    tasks = @tasks.filter { |task| task.status == "incomplete" }
+    tasks.map! { |task| task.description}
   end
 end
