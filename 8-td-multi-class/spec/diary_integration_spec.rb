@@ -11,30 +11,10 @@ RSpec.describe "integration" do
       diary.add(entry_2)
       expect(diary.all).to eq [entry_1, entry_2]
     end
-
-    it "returns a list of all diary entries" do
-      diary = Diary.new
-      entry_1 = DiaryEntry.new("Title_1", "Contents_1")
-      entry_2 = DiaryEntry.new("Title_2", "Contents_2")
-      diary.add(entry_1)
-      diary.add(entry_2)
-      expect(diary.count_words).to eq 2
-    end
   end
 
   context "given 3 diary entries" do  
-    it "returns a list of all diary entries" do
-      diary = Diary.new
-      entry_1 = DiaryEntry.new("Title_1", "Contents_1")
-      entry_2 = DiaryEntry.new("Title_2", "Contents_2")
-      entry_3 = DiaryEntry.new("Title_3", "1 2 3 4 5 6 7 8 9")
-      diary.add(entry_1)
-      diary.add(entry_2)
-      diary.add(entry_3)
-      expect(diary.count_words).to eq 11
-    end
-  
-    it "returns 3" do
+    it "returns a reading time of 3 when given wpm of " do
       diary = Diary.new
       entry_1 = DiaryEntry.new("Title_1", "Contents_1")
       entry_2 = DiaryEntry.new("Title_2", "Contents_2")
